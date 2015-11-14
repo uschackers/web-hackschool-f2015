@@ -1,11 +1,18 @@
 $(document).ready(function() {
+  $('.new').keypress(function(e) {
+    if(e.which == 13) {
+      createPost($('.writesomething').val());
+    }
+  });
+
   loadPosts();
+
 });
 
 function createPost(text) {
   $.post('/posts', { content: text }, function(results) {
     if(results.success) {
-      
+
     } else {
 
     }

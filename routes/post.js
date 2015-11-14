@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
   var newPost = new Post({
     content: req.body.content,
     votes: 0,
