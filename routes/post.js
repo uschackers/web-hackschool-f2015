@@ -9,11 +9,37 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-
+  var newPost = new Post({
+    content: req.body.content,
+    votes: 0,
+    created: Date.now()
+  });
+  newPost.save(function(err) {
+    if(err) return res.send({ success: false, msg: 'Unable to save post' });
+    res.send({ success: true });
+  });
 });
 
 router.put('/:id/vote/:direction', function(req, res, next) {
-
+  if(req.params.direction !== 'up' && req.params.direction !== 'down') {
+    return res.send({
+      success: false,
+      msg: 'Invalid voting direction'
+    });
+  }
+  var direction = req.params.direction === 'up' ? true : false;
+  Post.findOne({ _id: req.params.id }).exec(function(err, post) {
+    if(err) {
+      return res.send({
+        success: false,
+        msg: 'Unable to find post with id ' + req.params.id
+      });
+    }
+    post.vote(direction, function(err) {
+      if(err) return res.send({ success: false, msg: 'Voting failed' });
+      return res.send({ success: true });
+    });
+  });
 });
 
 module.exports = router;
