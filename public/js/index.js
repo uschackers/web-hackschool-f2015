@@ -31,7 +31,6 @@ function createPost(text) {
 };
 
 function renderPost(post) {
-  console.log(post);
   var dateDiff = new Date().getHours() - new Date(post.created).getHours();
 
   var post = '<div class="post real-post"> \
@@ -60,10 +59,7 @@ function loadPosts(wipe) {
     if(!results.success) {
 
     } else {
-      console.log(results.posts);
-      if(wipe) {
-          removeAll();
-      }
+      if(wipe) removeAll();
       for(var i in results.posts) {
 
         renderPost(results.posts[i]);
