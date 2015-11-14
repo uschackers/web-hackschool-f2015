@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  console.log(req.body);
   var newPost = new Post({
     content: req.body.content,
-    vote: 0,
+    votes: 0,
     created: Date.now()
   });
   newPost.save(function(err) {

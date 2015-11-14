@@ -3,9 +3,9 @@ $(document).ready(function() {
 });
 
 function createPost(text) {
-  $.post('/posts', function(results) {
+  $.post('/posts', { content: text }, function(results) {
     if(results.success) {
-
+      
     } else {
 
     }
@@ -34,9 +34,7 @@ function renderPost(post) {
       </div> \
   </div>';
 
-  console.log(post);
-
-  $('.container').append(post);
+  $('#post-container').append(post);
 };
 
 function loadPosts() {
@@ -44,7 +42,9 @@ function loadPosts() {
     if(!results.success) {
 
     } else {
+      console.log(results.posts);
       for(var i in results.posts) {
+
         renderPost(results.posts[i]);
       }
     }
