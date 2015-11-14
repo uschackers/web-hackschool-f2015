@@ -1,0 +1,62 @@
+/* general */
+html, body {
+    min-width: 1024px;
+    margin: 0; padding: 0;
+    font-family: sans-serif;
+    background: #f1f1f1;
+}
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+/* header */
+.header {
+    width: 100%; height: 80px;
+    background: #bf2932;
+}
+.logo, .makeapost {
+    height: 100%;
+    display: block;
+    line-height: 80px;
+}
+.logo {
+    float: left;
+}
+.makeapost {
+    float: right;
+}
+.logo>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+.logo>img {
+    height: 50px;
+}
+.logo>h1 {
+    margin: 0; padding: 0;
+    font-size: 32px;
+    color: #ffffff;
+}
+.makeapost>button {
+    height: 40px; width: 160px;
+    margin: 18px 0 0 0; padding: 0;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid white;
+    border-radius: 2px;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+.actions img {
+    width: 50px;
+    height: auto;
+}
+
+.downvote img{
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
