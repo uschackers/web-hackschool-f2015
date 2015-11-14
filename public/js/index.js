@@ -24,6 +24,7 @@ function createPost(text) {
   $.post('/posts', { content: text }, function(results) {
     if(results.success) {
       $('#message').html('Post successfully created');
+      loadPosts(true);
     } else {
       $('#message').html(results.msg);
     }
