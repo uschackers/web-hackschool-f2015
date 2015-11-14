@@ -23,7 +23,7 @@ function renderPost(post) {
   console.log(post);
   var dateDiff = new Date().getHours() - new Date(post.created).getHours();
 
-  var post = '<div class="post" data-id=""> \
+  var post = '<div class="post real-post" data-id=""> \
       <div class="content"> \
           <p class="text">' + post.content + '</p> \
           <p class="info">' + dateDiff + ' hours ago</p> \
@@ -59,7 +59,7 @@ function loadPosts() {
 }
 
 function removeAll() {
-  $('.post').remove();
+  $('.real-post').remove();
 };
 
 function vote(id, type) {
