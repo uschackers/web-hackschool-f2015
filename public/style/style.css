@@ -51,6 +51,14 @@ html, body {
     color: #bf2932;
     cursor: pointer;
 }
+.message {
+    font-style: italic;
+    font-weight: 100;
+    letter-spacing: 1px;
+    line-height: 80px;
+    float: right;
+    color: rgba(255,255,255,0.75);
+}
 
 /* posts */
 .post {
