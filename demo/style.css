@@ -38,14 +38,38 @@ html, body {
     color: #ffffff;
 }
 .makeapost>button {
-    height: 40px; width: 160px;
-    margin: 18px 0 0 0; padding: 0;
+    height: 36px; width: 140px;
+    margin: 20px 0 0 0; padding: 0;
     font-size: 18px;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: lowercase;
     border: 2px solid white;
     border-radius: 2px;
     background: none;
     color: white;
     cursor: pointer;
+}
+/* posts */
+.post {
+    height: 160px;
+    margin-top: 10px;
+    font-size: 0;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    background: #ffffff;
+}
+.content, .votes {
+    height: 100%;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+}
+.content {
+    width: 800px;
+}
+.content>* {
+    margin: 0; padding: 0;
+}
+.votes {
+    width: 222px;
 }
