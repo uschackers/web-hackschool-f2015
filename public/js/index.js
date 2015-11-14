@@ -23,9 +23,9 @@ function appendHandlers() {
 function createPost(text) {
   $.post('/posts', { content: text }, function(results) {
     if(results.success) {
-
+      $('#message').html('Post successfully created');
     } else {
-
+      $('#message').html(results.msg);
     }
   });
 };
@@ -57,11 +57,10 @@ function renderPost(post) {
 function loadPosts(wipe) {
   $.get('/posts', function(results) {
     if(!results.success) {
-
+      $('#message').html(results.msg);
     } else {
       if(wipe) removeAll();
       for(var i in results.posts) {
-
         renderPost(results.posts[i]);
       }
       appendHandlers();
@@ -79,9 +78,9 @@ function vote(id, type) {
     url: '/posts/' + id + '/vote/' + type,
     success: function(results) {
       if(results.success) {
-          loadPosts(true);
+        loadPosts(true);
       } else {
-
+        $('#message').html(results.msg);
       }
     }
   })
