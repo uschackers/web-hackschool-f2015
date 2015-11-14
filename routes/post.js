@@ -2,7 +2,7 @@ var router = require('express').Router(),
     Post = require('../models/post');
 
 router.get('/', function(req, res, next) {
-  Post.find({}).lean().exec(function(err, posts) {
+  Post.find({}).sort({ created: 'desc' }).lean().exec(function(err, posts) {
     if(err) return res.send({ success: false, msg: 'Unable to retrieve posts' });
     res.send({ success: true, posts: posts });
   });
@@ -22,15 +22,15 @@ router.post('/', function(req, res, next) {
 
 router.put('/:id/vote/:direction', function(req, res, next) {
   if(req.params.direction !== 'up' && req.params.direction !== 'down') {
-    return res.send({ 
-      success: false, 
+    return res.send({
+      success: false,
       msg: 'Invalid voting direction'
     });
   }
   var direction = req.params.direction === 'up' ? true : false;
-  Post.findOne(req.params.id).exec(function(err, post) {
-    if(err) { 
-      return res.send({ 
+  Post.findOne({ _id: req.params.id }).exec(function(err, post) {
+    if(err) {
+      return res.send({
         success: false,
         msg: 'Unable to find post with id ' + req.params.id
       });

@@ -6,8 +6,19 @@ $(document).ready(function() {
   });
 
   loadPosts();
-
 });
+
+function appendHandlers() {
+    $('.upvote.active').click(function(e) {
+        var id = $(this).data('id');
+        vote(id, 'up');
+    });
+
+    $('.downvote.active').click(function(e) {
+        var id = $(this).data('id');
+        vote(id, 'down');
+    });
+}
 
 function createPost(text) {
   $.post('/posts', { content: text }, function(results) {
@@ -23,7 +34,7 @@ function renderPost(post) {
   console.log(post);
   var dateDiff = new Date().getHours() - new Date(post.created).getHours();
 
-  var post = '<div class="post real-post" data-id=""> \
+  var post = '<div class="post real-post"> \
       <div class="content"> \
           <p class="text">' + post.content + '</p> \
           <p class="info">' + dateDiff + ' hours ago</p> \
@@ -31,10 +42,10 @@ function renderPost(post) {
       <div class="votes"> \
           <div class="count">' + post.votes + '</div> \
           <div class="actions"> \
-              <button class="upvote"> \
+              <button class="upvote active" data-id="' + post._id + '"> \
                   <img src="img/chevron-up.svg" alt="upvote" class="chevron"> \
               </button> \
-              <button class="downvote"> \
+              <button class="downvote active" data-id="' + post._id + '"> \
                   <img src="img/chevron-down.svg" alt="downvote" class="chevron"> \
               </button> \
           </div> \
@@ -44,16 +55,20 @@ function renderPost(post) {
   $('#post-container').append(post);
 };
 
-function loadPosts() {
+function loadPosts(wipe) {
   $.get('/posts', function(results) {
     if(!results.success) {
 
     } else {
       console.log(results.posts);
+      if(wipe) {
+          removeAll();
+      }
       for(var i in results.posts) {
 
         renderPost(results.posts[i]);
       }
+      appendHandlers();
     }
   });
 }
@@ -68,7 +83,7 @@ function vote(id, type) {
     url: '/posts/' + id + '/vote/' + type,
     success: function(results) {
       if(results.success) {
-
+          loadPosts(true);
       } else {
 
       }
