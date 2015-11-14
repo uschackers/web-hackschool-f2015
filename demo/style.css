@@ -43,6 +43,7 @@ html, body {
     font-size: 18px;
     text-align: center;
     text-transform: lowercase;
+    letter-spacing: 1px;
     border: 2px solid white;
     border-radius: 2px;
     background: none;
@@ -70,6 +71,56 @@ html, body {
 .content>* {
     margin: 0; padding: 0;
 }
+.writesomething, .text, .info {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.writesomething, .text {
+    width: 720px;
+    padding: 40px 0 0 40px;
+    line-height: 24px;
+    color: #555555;
+}
+.writesomething {
+    border: none;
+    outline: none;
+}
+.info {
+    padding: 10px 0 0 40px;
+    color: #cacaca;
+}
 .votes {
     width: 222px;
+}
+.count {
+    height: 100%; width: 157px;
+    border-left: 1px solid #eaeaea;
+    font-size: 32px;
+    text-align: center;
+    line-height: 160px;
+    vertical-align: middle;
+    color: #eaeaea;
+    float: left;
+}
+.actions {
+    float: right;
+}
+.upvote, .downvote {
+    height: 80px; width: 64px;
+    margin: 0; padding: 0;
+    display: block;
+    text-align: center;
+    border: none;
+    background: #eaeaea;
+    cursor: pointer;
+}
+.upvote {
+    border-bottom: 1px solid #ffffff;
+}
+.downvote {
+    border-top: 1px solid #ffffff;
+}
+.chevron {
+    height: 20px;
+    display: inline-block;
 }
