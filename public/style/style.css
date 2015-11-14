@@ -49,3 +49,14 @@ html, body {
     color: white;
     cursor: pointer;
 }
+
+.actions img {
+    width: 50px;
+    height: auto;
+}
+
+.downvote img{
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

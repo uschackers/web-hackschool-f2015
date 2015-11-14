@@ -1,0 +1,35 @@
+{
+  "name": "web-hackschool-f2015",
+  "version": "1.0.0",
+  "description": "A demo application similar to yik-yak",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/USCHackers/web-hackschool-f2015.git"
+  },
+  "keywords": [
+    "HackSC",
+    "Fall",
+    "2015",
+    "WebHackSChool"
+  ],
+  "author": "David Bell & Stephen Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/USCHackers/web-hackschool-f2015/issues"
+  },
+  "homepage": "https://github.com/USCHackers/web-hackschool-f2015#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "express": "^4.13.3",
+    "kerberos": "0.0.17",
+    "mongodb": "^2.0.48",
+    "mongoose": "^4.2.5",
+    "path": "^0.12.7"
+  }
+}
